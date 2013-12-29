@@ -1,6 +1,10 @@
 Sugumogu::Application.routes.draw do
-  get "top/index"
-  get "shop/index"
+  root "top#index"
+
+  get 'shop' => 'shop#index', as: :shop_index
+  get 'shop/list' => 'shop#list', as: :shop_list
+  get 'shop/:id' => 'shop#detail', as: :shop_detail
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

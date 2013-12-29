@@ -1,2 +1,7 @@
-<h1>Shop#index</h1>
-<p>Find me in app/views/shop/index.html.erb</p>
+<ul>
+  <% @shop.each do |shop| %>
+  <li>
+    <%= link_to shop.name, shop_detail_path(shop[:id]) %>
+  </li>
+  <% end %>
+</ul>
