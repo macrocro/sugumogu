@@ -49,3 +49,5 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-debugger'
 end
+
+gem 'activeadmin', github: 'gregbell/active_admin'
