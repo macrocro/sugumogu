@@ -11,4 +11,23 @@ namespace :shop do
       shop.save
     end
   end
+
+  task tel_to_tel: :environment do
+    shops = Shop.all.select('id,pref')
+
+    shops.each do |shop|
+      shop.tel = shop.pref
+      shop.pref = nil
+      shop.save
+    end
+  end
+
+  task set_padi: :environment do
+    shops = Shop.all
+
+    shops.each do |shop|
+      shop.license = 'padi'
+      shop.save
+    end
+  end
 end
