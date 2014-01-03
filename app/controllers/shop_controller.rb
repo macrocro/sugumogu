@@ -10,4 +10,8 @@ class ShopController < ApplicationController
   def detail
     @shop = Shop.find_by_id params[:id]
   end
+
+  def data
+    @shop = Shop.find_by_id params[:id]
+  end
 end

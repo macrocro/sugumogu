@@ -7,6 +7,8 @@ Sugumogu::Application.routes.draw do
   get 'area/:pref' => 'shop#index', as: :shop_pref
   get 'area/shop/:id' => 'shop#detail', as: :shop_detail
 
+  get 'shop/:pref/:city/:id' => 'shop#data', as: :shop_data
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
