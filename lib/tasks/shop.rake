@@ -51,7 +51,7 @@ namespace :shop do
             "鹿児島県"=>"kagoshima",
             "沖縄県"=>"okinawa"]
 
-    shops = Shop.all.select('id,address,pref').limit(10)
+    shops = Shop.all.select('id,address,pref')
 
     shops.each do |shop|
       address = shop.address
@@ -61,15 +61,9 @@ namespace :shop do
         next
       end
 
-      # hash.each{ |key,value|
-      #   if key == "#{$1}"
-      #     shop.pref = value
-      #   end
-      # }
+      pref_hash = hash[0].select { |k, v| k == "#{$1}" }
 
-      pref_hash = hash.select { |k, v| k == "#{$1}" }
-
-      binding.pry
+      shop.pref = pref_hash.values[0]
 
       shop.save
     end
