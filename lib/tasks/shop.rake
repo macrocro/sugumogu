@@ -58,6 +58,7 @@ namespace :shop do
       /^((.*?(府|県|東京都|道)))/ =~ address
 
       if "#{$1}".blank?
+        p "ERROR: id: #{shop.id}, address: #{shop.address}"
         next
       end
 
