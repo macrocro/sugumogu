@@ -51,22 +51,29 @@ namespace :shop do
             "鹿児島県"=>"kagoshima",
             "沖縄県"=>"okinawa"]
 
-    shops = Shop.all.select('id,address,pref')
+    n = 0
+    while true do
+      shops = Shop.all.select('id,address,pref').limit(100).offset(100*n)
+      break if shops.blank?
 
-    shops.each do |shop|
-      address = shop.address
-      /^((.*?(府|県|東京都|道)))/ =~ address
+      shops.each do |shop|
+        p shop.id
+        address = shop.address
+        /^((.*?(府|県|東京都|道)))/ =~ address
 
-      if "#{$1}".blank?
-        p "ERROR: id: #{shop.id}, address: #{shop.address}"
-        next
+        if "#{$1}".blank?
+          p "ERROR: id: #{shop.id}, address: #{shop.address}"
+          next
+        end
+
+        pref_hash = hash[0].select { |k, v| k == "#{$1}" }
+
+        shop.pref = pref_hash.values[0]
+
+        shop.save
       end
 
-      pref_hash = hash[0].select { |k, v| k == "#{$1}" }
-
-      shop.pref = pref_hash.values[0]
-
-      shop.save
+      n = n + 1;
     end
   end
 
