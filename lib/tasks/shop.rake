@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 namespace :shop do
-  desc "TODO"
+  desc "set Shops.pref from ja-Address ex. Shops.pref = hokkaido"
   task pref_and_city: :environment do
 
     hash = ["北海道"=>"hokkaido",
@@ -77,22 +77,37 @@ namespace :shop do
     end
   end
 
+  desc "not in use"
   task tel_to_tel: :environment do
     shops = Shop.all.select('id,pref')
 
     shops.each do |shop|
       shop.tel = shop.pref
       shop.pref = nil
-      shop.save
+      # shop.save
     end
   end
 
+  desc "alart!!! this task set all shop PADI!wwww"
   task set_padi: :environment do
     shops = Shop.all
 
     shops.each do |shop|
       shop.license = 'padi'
-      shop.save
+      # shop.save
+    end
+  end
+
+  desc "set location table from shop.address analyzed"
+  task set_location: :environment do
+    shops = Shop.all
+
+    binding.pry
+
+    shops.each do |shop|
+      p shop.address
+      /^((.*?(府|県|東京都|道)))(.*?(市|区|町|村|群))/ =~ shop.address
+      p "#{$1} / #{$2}"
     end
   end
 end
