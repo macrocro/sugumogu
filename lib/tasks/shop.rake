@@ -69,6 +69,7 @@ namespace :shop do
         pref_hash = hash[0].select { |k, v| k == "#{$1}" }
 
         shop.pref = pref_hash.values[0]
+        shop.ja_pref = "#{$1}"
 
         shop.save
       end
@@ -98,6 +99,7 @@ namespace :shop do
     end
   end
 
+  # 正規表現でだいぶ選べるようになったけど、ぼちぼち外してるのがcityの方であるから手作業Checkは必要
   desc "set location table from shop.address analyzed"
   task set_location: :environment do
     shops = Shop.all
@@ -106,8 +108,9 @@ namespace :shop do
       /^(東京都|大阪府|京都府|.+?県|.+?道)(三宅島|八丈島|大島町|小笠原村父島|小笠原村母島|.+?市|.+?郡|.+?区|.+?村|.+?島|.+?町)/ =~ shop.address
       # p "#{$1} / #{$2}  /// #{shop.address}"
 
-      shop.city = "#{$2}"
-      p shop.city
+      shop.city = nil
+      shop.ja_city = "#{$2}"
+      p shop.ja_city
       shop.save
     end
   end
