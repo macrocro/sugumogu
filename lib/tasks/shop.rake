@@ -9,7 +9,7 @@ namespace :shop do
             "宮城県"=>"miyagi",
             "秋田県"=>"akita",
             "山形県"=>"yamagata",
-            "福島県"=>"hukushima",
+            "福島県"=>"fukushima",
             "茨城県"=>"ibaraki",
             "栃木県"=>"tochigi",
             "群馬県"=>"gunma",
@@ -20,10 +20,10 @@ namespace :shop do
             "新潟県"=>"nigata",
             "富山県"=>"toyama",
             "石川県"=>"ishikawa",
-            "福井県"=>"hukui",
+            "福井県"=>"fukui",
             "山梨県"=>"yamanashi",
             "長野県"=>"nagano",
-            "岐阜県"=>"gihu",
+            "岐阜県"=>"gifu",
             "静岡県"=>"shizuoka",
             "愛知県"=>"aichi",
             "三重県"=>"mie",
@@ -38,11 +38,11 @@ namespace :shop do
             "岡山県"=>"okayama",
             "広島県"=>"hiroshima",
             "山口県"=>"yamaguchi",
-            "徳島県"=>"hukushima",
+            "徳島県"=>"fukushima",
             "香川県"=>"kagawa",
             "愛媛県"=>"ehime",
             "高知県"=>"kouchi",
-            "福岡県"=>"hukuoka",
+            "福岡県"=>"fukuoka",
             "佐賀県"=>"saga",
             "長崎県"=>"nagasaki",
             "熊本県"=>"kumamoto",
@@ -102,12 +102,13 @@ namespace :shop do
   task set_location: :environment do
     shops = Shop.all
 
-    binding.pry
-
     shops.each do |shop|
-      p shop.address
-      /^((.*?(府|県|東京都|道)))(.*?(市|区|町|村|群))/ =~ shop.address
-      p "#{$1} / #{$2}"
+      /^(東京都|大阪府|京都府|.+?県|.+?道)(三宅島|八丈島|大島町|小笠原村父島|小笠原村母島|.+?市|.+?郡|.+?区|.+?村|.+?島|.+?町)/ =~ shop.address
+      # p "#{$1} / #{$2}  /// #{shop.address}"
+
+      shop.city = "#{$2}"
+      p shop.city
+      shop.save
     end
   end
 end
