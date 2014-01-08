@@ -114,4 +114,51 @@ namespace :shop do
       shop.save
     end
   end
+
+  task set_location_pref: :environment do
+    prefs_hash = Location.get_pref_hash
+
+    # 全都道府県でeach
+    prefs_hash[0].each{ |ja_pref, pref|
+      shops = Shop.where("pref = ?", pref).select("id, name, pref, city, ja_pref, ja_city")
+
+      # あるprefの中でcityに関して
+      shops.each do |shop|
+        location = Location.find_by ja_city: shop.ja_city
+        # ja_cityで登録されていないならば保存してエリア番号をつける
+        if location.blank?
+
+          # 最新のエリア番号を取得する
+          pref_location = Location.where("ja_pref = ?", shop.ja_pref).order("city DESC").limit(1)
+          if pref_location.blank?
+            city_no = 1
+          else
+            city_no = pref_location[0].city.to_i + 1
+          end
+
+          # 保存
+          location = Location.new
+          location.pref = shop.pref
+          location.city = city_no
+          location.ja_pref = shop.ja_pref
+          location.ja_city = shop.ja_city
+
+          p "pref: " + location.pref + " no: " + location.city.to_s
+          location.save
+
+          shop.city = location.city
+          shop.save
+        else
+          shop.city = location.city
+          shop.save
+        end
+      end
+    }
+
+    # pref_hash = prefs_hash[0].select { |k, v| k == "#{$1}" }
+
+    # shop.pref = pref_hash.values[0]
+    # shop.ja_pref = "#{$1}"
+  end
+
 end
