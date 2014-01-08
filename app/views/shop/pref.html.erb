@@ -1,11 +1,13 @@
-<%= render_breadcrumbs %>
-
-<hr>
-
-<ul>
-  <% @locations.each do |location| %>
-  <li>
-    <%= link_to location.ja_city, shop_city_path(location[:pref],location[:city]) %>
-  </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-3 left-container same-height">
+    <ul>
+      <% @locations.each do |location| %>
+      <li>
+        <%= link_to location.ja_city, shop_city_path(location[:pref],location[:city]) %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-9 right-container same-height">
+  </div>
+</div>

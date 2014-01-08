@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Sugumogu</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <%= stylesheet_link_tag    "bootstrap", media: "all", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "main.css", media: "all", "data-turbolinks-track" => true %>
+
+    <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top" id="page-header">
+      <div class="container container-header">
+        <img src="http://www.khb-tv.co.jp/image/logo_main.gif" class="title-logo">
+      </div>
+    </div>
+    <div class="container">
+      <div class="main">
+        <%= render_breadcrumbs %>
+        <div class="shop-container">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

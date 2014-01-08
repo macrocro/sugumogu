@@ -2,6 +2,7 @@
 class ShopController < ApplicationController
 
   before_action :breadcrumb
+  layout 'shop'
 
   def breadcrumb
     add_breadcrumb 'すぐもぐ', root_url
@@ -22,6 +23,7 @@ class ShopController < ApplicationController
 
   def data
     @shop = Shop.find_by_id params[:id]
+    @pref_shops = Shop.where('pref = ? and city = ?', params[:pref], params[:city])
 
     add_breadcrumb @shop.ja_pref, shop_pref_path(params[:pref])
     add_breadcrumb @shop.ja_city, shop_city_path(params[:pref], params[:city])

@@ -1,31 +1,38 @@
-<%= render_breadcrumbs %>
+<div class="row">
+  <div class="col-md-3 left-container">
+    <ul>
+      <% @pref_shops.each do |shop| %>
+      <li>
+        <%= link_to shop.name, shop_data_path(shop[:pref],shop[:city],shop[:id]) %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-9 right-container">
+    <h1><%= @shop[:name] %></h1>
 
-<hr>
+    <div>
+      <%= @shop[:id] %>
+    </div>
 
-<div>
-  <%= @shop[:id] %>
-</div>
+    <div>
+      <%= @shop[:url] %>
+    </div>
 
-<div>
-  <%= @shop[:url] %>
-</div>
+    <div>
+      <%= @shop[:zip_code] %>
+    </div>
 
-<div>
-  <%= @shop[:name] %>
-</div>
+    <div>
+      <%= @shop[:address] %>
+    </div>
 
-<div>
-  <%= @shop[:zip_code] %>
-</div>
+    <div>
+      <%= @shop[:pref] %>
+    </div>
 
-<div>
-  <%= @shop[:address] %>
-</div>
-
-<div>
-  <%= @shop[:pref] %>
-</div>
-
-<div>
-  <%= @shop[:tel] %>
+    <div>
+      <%= @shop[:tel] %>
+    </div>
+  </div>
 </div>
