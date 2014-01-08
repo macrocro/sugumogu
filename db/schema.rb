@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140105162153) do
+ActiveRecord::Schema.define(version: 20140108092115) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -48,7 +48,9 @@ ActiveRecord::Schema.define(version: 20140105162153) do
 
   create_table "locations", force: true do |t|
     t.string   "pref"
-    t.string   "city"
+    t.integer  "city"
+    t.string   "ja_pref"
+    t.string   "ja_city"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140105162153) do
     t.string   "zip_code"
     t.string   "address"
     t.string   "pref"
-    t.string   "city"
+    t.integer  "city"
     t.string   "ja_pref"
     t.string   "ja_city"
     t.string   "tel"
