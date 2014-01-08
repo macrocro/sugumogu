@@ -5,7 +5,7 @@ class ShopController < ApplicationController
   layout 'shop'
 
   def breadcrumb
-    add_breadcrumb 'すぐもぐ', root_url
+    add_breadcrumb 'すぐもぐ', '/'
   end
 
   def pref
