@@ -1,7 +1,0 @@
-<ul>
-  <% @shop.each do |shop| %>
-  <li>
-    <%= link_to shop.name, shop_detail_path(shop[:id]) %>
-  </li>
-  <% end %>
-</ul>
