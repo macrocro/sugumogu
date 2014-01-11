@@ -110,7 +110,6 @@ h1,h2,h3,h3{
 .breadcrumb_area {
   font-size: 10px;
   padding: 5px 10px;
-  border-bottom: 3px solid #7F9ED0;
 }
 
 .shop-container {
@@ -119,20 +118,21 @@ h1,h2,h3,h3{
 
 .shop-container .left-container {
   background-color: #F7F7F7;
-  min-height: 209px;
-}
-
-.shop-container .left-container:before {
-  float: left;
-  box-shadow: -7px 0px 7px -7px;
-  content: " ";
-  height: 100%;
-  position: absolute;
-  right: -15px;
-  width: 15px;
+  min-height: 550px;
+  list-style: none;
+  border-top: solid 4px #6BBED5;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset, 0 3px 2px rgba(0, 0, 0, 0.1) inset;
+  padding: 25px;
 }
 
 .shop-container .right-container {
   padding: 25px;
   position: relative;
+  border-top: solid 4px #1E98B9;
+  min-height: 550px;
+}
+
+.left-container ul {
+  list-style: none;
+  padding: 0;
 }
