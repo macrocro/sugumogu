@@ -126,9 +126,8 @@ h1,h2,h3,h3{
 }
 
 .shop-container .right-container {
-  padding: 25px;
   position: relative;
-  border-top: solid 4px #1E98B9;
+//  border-top: solid 4px #1E98B9;
   min-height: 550px;
 }
 
@@ -136,3 +135,35 @@ h1,h2,h3,h3{
   list-style: none;
   padding: 0;
 }
+
+.left-container li {
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #E0E0E0;
+
+}
+.left-container li:after {
+}
+
+.right-container h2 {
+  overflow: hidden;
+  padding: 0 30px;
+  background-color: #436FB4;
+  font-size: 22px;
+  color: white;
+  height: 50px;
+  line-height: 50px;
+}
+
+.right-container h2:before {
+  float: left;
+  margin-right: 20px;
+  content: url("/assets/diving.png");
+}
+
+.right-container .shop-info {
+  padding: 25px;
+}
+
