@@ -2,7 +2,6 @@
 class ShopController < ApplicationController
 
   before_action :breadcrumb
-  layout 'shop'
 
   def breadcrumb
     add_breadcrumb 'すぐもぐ', '/'
@@ -12,6 +11,7 @@ class ShopController < ApplicationController
     @locations = Location.where('pref = ?', params[:pref])
 
     add_breadcrumb @locations[0].ja_pref
+    render :layout => 'list'
   end
 
   def city
@@ -19,11 +19,13 @@ class ShopController < ApplicationController
 
     add_breadcrumb @shop[0].ja_pref, shop_pref_path(params[:pref])
     add_breadcrumb @shop[0].ja_city
+    render :layout => 'list'
   end
 
   def data
     @shop = Shop.find_by_id data_params[:id]
     @pref_shops = Shop.where('pref = ? and city = ?', data_params[:pref], data_params[:city])
+    @data_params = data_params
 
     return not_found! unless @shop && @pref_shops.present?
 
@@ -31,10 +33,27 @@ class ShopController < ApplicationController
     if !(@shop[:pref] == data_params[:pref] && @shop[:city] == data_params[:city].to_i)
       return redirect_to shop_data_path(@shop[:pref], @shop[:city], @shop[:id])
     end
-
     add_breadcrumb @shop.ja_pref, shop_pref_path(params[:pref])
     add_breadcrumb @shop.ja_city, shop_city_path(params[:pref], params[:city])
     add_breadcrumb @shop.name
+    render :layout => 'shop'
+  end
+
+  def data_map
+    @shop = Shop.find_by_id data_params[:id]
+    @pref_shops = Shop.where('pref = ? and city = ?', data_params[:pref], data_params[:city])
+    @data_params = data_params
+
+    return not_found! unless @shop && @pref_shops.present?
+
+    # shop_idのpref,cityにURLをあわせるようredirect
+    if !(@shop[:pref] == data_params[:pref] && @shop[:city] == data_params[:city].to_i)
+      return redirect_to shop_data_path(@shop[:pref], @shop[:city], @shop[:id])
+    end
+    add_breadcrumb @shop.ja_pref, shop_pref_path(params[:pref])
+    add_breadcrumb @shop.ja_city, shop_city_path(params[:pref], params[:city])
+    add_breadcrumb @shop.name
+    render :layout => 'shop'
   end
 
   private

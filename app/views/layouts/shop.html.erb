@@ -8,8 +8,10 @@
     <%= stylesheet_link_tag    "bootstrap", media: "all", "data-turbolinks-track" => true %>
     <%= stylesheet_link_tag    "main.css", media: "all", "data-turbolinks-track" => true %>
 
-    <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//maps.google.com/maps/api/js?v=3&sensor=false" type="text/javascript" charset="UTF-8"></script>
+    <%= javascript_include_tag "shop", "data-turbolinks-track" => true %>
+
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -22,7 +24,35 @@
       <%= render_breadcrumbs %>
       <div class="main">
         <div class="shop-container">
-          <%= yield %>
+          <div class="row">
+            <div class="col-md-4 left-container">
+              <ul>
+                <% @pref_shops.each do |shop| %>
+                <li>
+                  <%= link_to shop.name, shop_data_path(shop[:pref],shop[:city],shop[:id]) %>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="col-md-8 right-container">
+              <div class="shop-img-box">
+                <%= image_tag 'http://exp.cdn-hotels.com/hotels/7000000/6380000/6376200/6376125/6376125_65_z.jpg', :class=>'shop-img'%>
+                <span class="shop-title"><h2><%= @shop[:name] %></h2><span class="spot"><%= @shop[:ja_pref] %><%= @shop[:ja_city] %></span></span>
+              </div>
+
+              <div class="menu">
+                <div class="btn-group btn-group-justified">
+                  <% action = controller.action_name %>
+                  <a class="btn btn-default <%= 'pushed' if action == 'data' %>" role="button" href="<%= url_for shop_data_path(@data_params) %>"><%= image_tag 'flag.png' %><span>店舗トップ</span></a>
+                  <a class="btn btn-default " role="button"><%= image_tag 'camera.png' %><span>写真</span></a>
+                  <a class="btn btn-default " role="button"><%= image_tag 'plan.png' %><span>プラン</span></a>
+                  <a class="btn btn-default " role="button"><%= image_tag 'kuchikomi.png' %><span>口コミ</span></a>
+                  <a class="btn btn-default <%= 'pushed' if action == 'data_map' %>" role="button" href="<%= url_for shop_data_map_path(@data_params) %>"><%= image_tag 'map.png' %><span>地図</span></a>
+                </div>
+              </div>
+              <%= yield %>
+            </div>
+          </div><!-- row -->
         </div>
       </div>
     </div>

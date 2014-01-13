@@ -121,7 +121,7 @@ h1,h2,h3,h3{
   min-height: 550px;
   list-style: none;
   border-top: solid 4px #6BBED5;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset, 0 3px 2px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) inset, 0 3px 2px rgba(0, 0, 0, 0.2) inset;
   padding: 25px;
 }
 
@@ -147,23 +147,117 @@ h1,h2,h3,h3{
 .left-container li:after {
 }
 
-.right-container h2 {
+/* shop right-container */
+.right-container .shop-title {
   overflow: hidden;
   padding: 0 30px;
   background-color: #436FB4;
-  font-size: 22px;
   color: white;
   height: 50px;
   line-height: 50px;
-}
 
-.right-container h2:before {
+  position: absolute;
+  bottom: 0px;
+  display: block;
+  width: 100%;
+}
+.shop-title:before {
+}
+.shop-title h2{
+  display: inline;
+  font-size: 22px;
+  font-weight: bold;
+}
+.shop-title .spot{
+  margin: 0px 15px;
+}
+.right-container .menu {
+}
+.btn.btn-default.pushed {
+  background-color: #F0F8FF;
+}
+.menu ul {
+  list-style: none;
+  height: 60px;
+  line-height: 60px;
+  padding: 0px;
+}
+.menu li {
   float: left;
-  margin-right: 20px;
-  content: url("/assets/diving.png");
+  width: 20%;
+  text-align: center;
 }
-
+.menu a {
+  height: 50px;
+  color: #436FB4;
+  font-weight: bold;
+}
+.menu a:hover {
+  color: #436FB4;
+}
+.menu a > img {
+  width: 40px;
+  height: 40px;
+}
+.menu span {
+  padding-left: 7px;
+}
 .right-container .shop-info {
   padding: 25px;
 }
+.shop-img-box {
+  overflow:hidden;
+  height: 300px;
+  position: relative;
+}
+.shop-img {
+  position: relative;
+  width: 100%;
+  top: -35%;
+  z-index: 0;
+}
+.shop-info table{
+  width: 100%;
+}
+.shop-info th,td {
+  padding: 7px 15px;
+  font-size: 13px;
+}
+.shop-info th {
+  background-color: #E3EAF6;
+  border-top: 2px dotted #FFF;
+  border-bottom: 2px dotted #FFF;
+  font-weight: normal;
+  width: 108px;
+}
+.shop-info td {
+  border-top: 2px dotted #EAE4D8;
+  border-bottom: 2px dotted #EAE4D8;
+}
+.shop-info #google_map {
+  margin-left: 20px;
+}
 
+/* shop map */
+.map-info {
+  padding: 15px 25px;
+}
+.headline {
+  font-size: 15px;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  border-bottom: 2px solid #436FB4;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #fff), color-stop(0.00, #F0F8FF));
+  background: -webkit-linear-gradient(#F0F8FF, #fff);
+  background: -moz-linear-gradient(#F0F8FF, #fff);
+  background: -o-linear-gradient(#F0F8FF, #fff);
+  background: -ms-linear-gradient(#F0F8FF, #fff);
+  background: linear-gradient(#F0F8FF, #fff);
+}
+.map-info .desc {
+  margin-left: 20px;
+  font-size: 14px;
+  color: gray;
+}

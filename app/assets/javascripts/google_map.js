@@ -1,23 +1,3 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-
-'jQuery' in window && (function($) {
-    function equalHeight(group) {
-        tallest = 0;
-        group.each(function() {
-            thisHeight = $(this).height();
-            if(thisHeight > tallest){
-                tallest = thisHeight;
-            }
-        });
-        group.height(tallest);
-    }
-
-    $(document).ready(function() {
-        equalHeight($("div.left-container,div.right-container"));
-    });
-})(jQuery);
-
 var my_google_map;
 var my_google_geo;
 
