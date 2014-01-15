@@ -281,6 +281,10 @@ h1,h2,h3,h3{
 
 /* responsive-modify */
 @media (max-width: 520px) {
+  .row {
+    padding: 0 5px;
+    margin: 0 -5px;
+  }
   .btn.btn-default {
     padding: 0px;
   }
