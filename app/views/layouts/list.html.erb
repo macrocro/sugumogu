@@ -1,8 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <title>Sugumogu</title>
-
+ <%
+    if controller.action_name == 'pref'
+      title = @ja_pref + 'のダイビングショップ'
+    elsif controller.action_name == 'city'
+      title = @ja_pref + @ja_city + 'のダイビングショップ'
+    end
+ %>
+ <%= display_meta_tags({
+         :title => title,
+         :site => @meta[:site],
+         :description => @meta[:description],
+         :keywords => @meta[:keywords],
+         :open_graph => {
+            :title => @meta[:title],
+            :type  => 'website',
+            :image => @meta[:image],
+            :url   => @meta[:canonical],
+            :description => @meta[:description],
+            :app_id => @meta[:fb_app_id],
+            :page_id => @meta[:fb_page_id]
+         },
+        :twitter => {
+            :card => 'product',
+            :site => '@sugumogu',
+            :url => @meta[:canonical],
+            :title => @meta[:title],
+            :description => @meta[:description],
+            :image => @meta[:image]
+         },
+        :separator => ' - ',
+        :reverse => true
+     })
+ %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <%= stylesheet_link_tag    "bootstrap", media: "all", "data-turbolinks-track" => true %>

@@ -56,4 +56,7 @@ end
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+# SEO # http://morizyun.github.io/blog/meta-tags-sitemap-generator-rails-seo/
 gem 'breadcrumble'
+gem 'meta-tags', :require => 'meta_tags'
+gem 'sitemap_generator'
