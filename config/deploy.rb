@@ -38,30 +38,30 @@ namespace :deploy do
 end
 
 # # Unicorn用に起動/停止タスクを変更
-# namespace :deploy do
-#   desc 'start unicorn'
-#   task :start do
-#     on roles(:all) do
-#       run "cd #{deploy_to}; unicorn -c config/unicorn.rb -E development -D"
-#     end
-#   end
+namespace :unicorn do
+  desc 'start unicorn!'
+  task :start do
+    on roles(:all) do
+      run "cd #{deploy_to}; unicorn -c config/unicorn.rb -E development -D"
+    end
+  end
 
-#   desc 'restart unicorn'
-#   task :restart do
-#     on roles(:all) do
-#       if File.exist? "/tmp/unicorn.pid"
-#         run "kill -s USR2 `cat /tmp/unicorn.pid`"
-#       end
-#     end
-#   end
+  desc 'restart unicorn!'
+  task :restart do
+    on roles(:all) do
+      if File.exist? "/tmp/unicorn.pid"
+        run "kill -s USR2 `cat /tmp/unicorn.pid`"
+      end
+    end
+  end
 
-#   desc 'stop unicorn'
-#   task :stop do
-#     on roles(:all) do
-#       run "kill -s QUIT `cat /tmp/unicorn.pid`"
-#     end
-#   end
-# end
+  desc 'stop unicorn!'
+  task :stop do
+    on roles(:all) do
+      run "kill -s QUIT `cat /tmp/unicorn.pid`"
+    end
+  end
+end
 
 # namespace :deploy do
 #   desc 'Restart application'
