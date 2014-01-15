@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     @meta = {
       :site => 'すぐもぐ！',
       # :image => URI.join(root_url, view_context.image_path('camera.png')),
-      :image => view_context.image_path('tenbosu.jpg'),
+      :image => URI.join(root_url,view_context.image_path('tenbosu.jpg')),
       :description => 'すぐに潜れる、ダイビングショップ検索サイト。すべての人にダイビングを！',
       :keywords => 'ダイビング, 体験ダイビング, スキューバダイビング',
       :top_canonical => 'http://sugumogu.com',
