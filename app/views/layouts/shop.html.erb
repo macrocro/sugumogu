@@ -78,11 +78,11 @@
               <div class="menu">
                 <div class="btn-group btn-group-justified">
                   <% action = controller.action_name %>
-                  <a class="btn btn-default <%= 'pushed' if action == 'data' %>" role="button" href="<%= url_for shop_data_path(@data_params) %>"><%= image_tag 'flag.png' %><span>トップ</span></a>
-                  <a class="btn btn-default " role="button"><%= image_tag 'camera.png' %><span>写真</span></a>
-                  <a class="btn btn-default " role="button"><%= image_tag 'plan.png' %><span>プラン</span></a>
-                  <a class="btn btn-default " role="button"><%= image_tag 'kuchikomi.png' %><span>口コミ</span></a>
-                  <a class="btn btn-default <%= 'pushed' if action == 'data_map' %>" role="button" href="<%= url_for shop_data_map_path(@data_params) %>"><%= image_tag 'map.png' %><span>地図</span></a>
+                  <a class="btn btn-default <%= 'pushed' if action == 'data' %>" role="button" href="<%= url_for shop_data_path(@data_params) %>"><%= image_tag 'flag.png' %><span class="menu-item">トップ</span></a>
+                  <a class="btn btn-default " role="button"><%= image_tag 'camera.png' %><span class="menu-item">写真</span></a>
+                  <a class="btn btn-default " role="button"><%= image_tag 'plan.png' %><span class="menu-item">プラン</span></a>
+                  <a class="btn btn-default " role="button"><%= image_tag 'kuchikomi.png' %><span class="menu-item">口コミ</span></a>
+                  <a class="btn btn-default <%= 'pushed' if action == 'data_map' %>" role="button" href="<%= url_for shop_data_map_path(@data_params) %>"><%= image_tag 'map.png' %><span class="menu-item">地図</span></a>
                 </div>
               </div>
               <%= yield %>

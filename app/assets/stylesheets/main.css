@@ -166,7 +166,7 @@ h1,h2,h3,h3{
   padding: 0 30px;
   background-color: #436FB4;
   color: white;
-  height: 50px;
+  min-height: 50px;
   line-height: 50px;
 
   position: absolute;
@@ -283,5 +283,25 @@ h1,h2,h3,h3{
 @media (max-width: 520px) {
   .btn.btn-default {
     padding: 0px;
+  }
+  .shop-info th {
+    width: 85px;
+  }
+  .shop-info th, td {
+    padding: 3px;
+  }
+  .right-container .shop-title {
+    padding: 5px;
+    text-align: center;
+  }
+  .shop-title h2 {
+    font-size: 18px;
+    display: block;
+  }
+  .right-container .shop-title {
+    line-height: inherit;
+  }
+  .right-container .shop-title {
+    min-height: inherit;
   }
 }
