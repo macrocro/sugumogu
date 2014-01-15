@@ -60,6 +60,7 @@
         <div class="shop-container">
           <div class="row">
             <div class="col-md-4 left-container">
+              <div class="pref-city-title"><%= "#{@shop[:ja_pref]}#{@shop[:ja_city]}" %>のダイビングショップ</div>
               <ul>
                 <% @pref_shops.each do |shop| %>
                 <li>
@@ -70,14 +71,14 @@
             </div>
             <div class="col-md-8 right-container">
               <div class="shop-img-box">
-                <%= image_tag 'http://exp.cdn-hotels.com/hotels/7000000/6380000/6376200/6376125/6376125_65_z.jpg', :class=>'shop-img'%>
+                <%= image_tag 'tenbosu.jpg', :class=>'shop-img'%>
                 <span class="shop-title"><h2><%= @shop[:name] %></h2><span class="spot"><%= @shop[:ja_pref] %><%= @shop[:ja_city] %></span></span>
               </div>
 
               <div class="menu">
                 <div class="btn-group btn-group-justified">
                   <% action = controller.action_name %>
-                  <a class="btn btn-default <%= 'pushed' if action == 'data' %>" role="button" href="<%= url_for shop_data_path(@data_params) %>"><%= image_tag 'flag.png' %><span>店舗トップ</span></a>
+                  <a class="btn btn-default <%= 'pushed' if action == 'data' %>" role="button" href="<%= url_for shop_data_path(@data_params) %>"><%= image_tag 'flag.png' %><span>トップ</span></a>
                   <a class="btn btn-default " role="button"><%= image_tag 'camera.png' %><span>写真</span></a>
                   <a class="btn btn-default " role="button"><%= image_tag 'plan.png' %><span>プラン</span></a>
                   <a class="btn btn-default " role="button"><%= image_tag 'kuchikomi.png' %><span>口コミ</span></a>

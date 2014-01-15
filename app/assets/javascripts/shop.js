@@ -14,7 +14,10 @@
     }
 
     $(document).ready(function() {
-        equalHeight($("div.left-container,div.right-container"));
+        if ($(window).width() > 992 ){
+            console.log($(window).width());
+            equalHeight($("div.left-container,div.right-container"));
+        }
     });
 })(jQuery);
 

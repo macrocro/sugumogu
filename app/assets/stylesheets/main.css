@@ -15,6 +15,10 @@ h1,h2,h3,h3{
   padding: 0;
 }
 
+.p10 {
+  padding: 10px;
+}
+
 /*
    header
    */
@@ -127,8 +131,17 @@ h1,h2,h3,h3{
 
 .shop-container .right-container {
   position: relative;
-//  border-top: solid 4px #1E98B9;
+  // border-top: solid 4px #1E98B9;
   min-height: 550px;
+}
+
+.left-container .pref-city-title {
+  font-size: 15px;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 15px;
+  padding: 0 10px 10px 5px;
+  border-bottom: 2px solid #436FB4;
 }
 
 .left-container ul {
@@ -139,9 +152,9 @@ h1,h2,h3,h3{
 .left-container li {
   margin-top: 5px;
   margin-bottom: 5px;
-  padding-top: 5px;
+  padding-bottom: 5px;
   border: 0;
-  border-top: 1px solid #E0E0E0;
+  border-bottom: 1px solid #E0E0E0;
 
 }
 .left-container li:after {
@@ -173,6 +186,9 @@ h1,h2,h3,h3{
 }
 .right-container .menu {
 }
+.btn-group span {
+  float: left;
+}
 .btn.btn-default.pushed {
   background-color: #F0F8FF;
 }
@@ -203,11 +219,11 @@ h1,h2,h3,h3{
   padding-left: 7px;
 }
 .right-container .shop-info {
-  padding: 25px;
+  // padding: 25px;
 }
 .shop-img-box {
   overflow:hidden;
-  height: 300px;
+  // height: 300px;
   position: relative;
 }
 .shop-img {
@@ -235,17 +251,18 @@ h1,h2,h3,h3{
   border-bottom: 2px dotted #EAE4D8;
 }
 .shop-info #google_map {
-  margin-left: 20px;
+  //margin-left: 20px;
 }
 
 /* shop map */
 .map-info {
-  padding: 15px 25px;
+  //padding: 15px 25px;
 }
 .headline {
   font-size: 15px;
   font-weight: bold;
   position: relative;
+  margin-top: 10px;
   margin-bottom: 15px;
   padding: 15px 20px;
   border-bottom: 2px solid #436FB4;
@@ -260,4 +277,11 @@ h1,h2,h3,h3{
   margin-left: 20px;
   font-size: 14px;
   color: gray;
+}
+
+/* responsive-modify */
+@media (max-width: 520px) {
+  .btn.btn-default {
+    padding: 0px;
+  }
 }
