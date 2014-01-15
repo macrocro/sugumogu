@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       :image => URI.join(root_url, view_context.image_path('camera.png')),
       :description => 'すぐに潜れる、ダイビングショップ検索サイト。すべての人にダイビングを！',
       :keywords => 'ダイビング, 体験ダイビング, スキューバダイビング',
-      :canonical => 'http://sugumogu.com',
+      :top_canonical => 'http://sugumogu.com',
       :fb_app_id => '464182493683853',
       :fb_page_id => '1439216986304758'
     }

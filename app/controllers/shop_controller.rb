@@ -12,6 +12,7 @@ class ShopController < ApplicationController
 
   def pref
     @locations = Location.where('pref = ?', params[:pref])
+    @pref = params[:pref]
     @ja_pref = @locations[0].ja_pref
 
     add_breadcrumb @ja_pref
@@ -20,6 +21,8 @@ class ShopController < ApplicationController
 
   def city
     @shop = Shop.where('pref = ? and city = ?', params[:pref], params[:city])
+    @pref = params[:pref]
+    @city = params[:city]
     @ja_pref = @shop[0].ja_pref
     @ja_city = @shop[0].ja_city
 

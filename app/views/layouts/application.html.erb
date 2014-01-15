@@ -3,7 +3,7 @@
   <head>
 
  <%= display_meta_tags({
-#         :title => @meta[:title],
+         # :title => @meta[:title],
          :site => @meta[:site],
          :description => @meta[:description],
          :keywords => @meta[:keywords],
@@ -11,7 +11,7 @@
             :title => @meta[:site],
             :type  => 'website',
             :image => @meta[:image],
-            :url   => @meta[:canonical],
+            :url   => @meta[:top_canonical],
             :description => @meta[:description],
             :app_id => @meta[:fb_app_id],
             :page_id => @meta[:fb_page_id],
@@ -20,11 +20,12 @@
         :twitter => {
             :card => 'product',
             :site => '@sugumogu',
-            :url => @meta[:canonical],
+            :url => @meta[:top_canonical],
             :title => @meta[:title],
             :description => @meta[:description],
             :image => @meta[:image]
          },
+        :canonical => @meta[:top_canonical],
         :separator => ' - ',
         :reverse => true
      })

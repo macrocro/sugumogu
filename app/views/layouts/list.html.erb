@@ -4,8 +4,10 @@
  <%
     if controller.action_name == 'pref'
       title = @ja_pref + 'のダイビングショップ'
+      canonical = shop_pref_url(@pref)
     elsif controller.action_name == 'city'
       title = @ja_pref + @ja_city + 'のダイビングショップ'
+      canonical = shop_city_url(@pref,@city)
     end
  %>
  <%= display_meta_tags({
@@ -20,7 +22,8 @@
             :url   => @meta[:canonical],
             :description => @meta[:description],
             :app_id => @meta[:fb_app_id],
-            :page_id => @meta[:fb_page_id]
+            :page_id => @meta[:fb_page_id],
+            :locale => 'ja_JP'
          },
         :twitter => {
             :card => 'product',
@@ -30,6 +33,7 @@
             :description => @meta[:description],
             :image => @meta[:image]
          },
+        :canonical => canonical,
         :separator => ' - ',
         :reverse => true
      })
