@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
   def title_meta_ogp
     @meta = {
       :site => 'すぐもぐ！',
+      :image => URI.join(root_url, view_context.image_path('camera.png')),
       :description => 'すぐに潜れる、ダイビングショップ検索サイト。すべての人にダイビングを！',
       :keywords => 'ダイビング, 体験ダイビング, スキューバダイビング',
       :canonical => 'http://sugumogu.com',
-      :image => URI.join(root_url, view_context.image_path('camera.png')),
       :fb_app_id => '464182493683853',
       :fb_page_id => '1439216986304758'
     }
