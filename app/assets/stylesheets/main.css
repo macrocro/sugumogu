@@ -281,6 +281,14 @@ h1,h2,h3,h3{
 
 /* responsive-modify */
 @media (max-width: 520px) {
+  html{
+    overflow-x : hidden;
+    overflow-y : auto;
+  }
+  body{
+    overflow-x : hidden;
+    overflow-y : auto;
+  }
   .container {
     padding-right: 7px;
     padding-left: 7px;
