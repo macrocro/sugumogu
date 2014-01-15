@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 class Location < ActiveRecord::Base
+  def shop_count
+    return Shop.where('pref = ? and city = ?', self.pref, self.city).count
+  end
+
   def self.get_pref_hash
     return hash = ["北海道"=>"hokkaido",
                    "青森県"=>"aomori",

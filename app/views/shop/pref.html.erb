@@ -3,7 +3,7 @@
     <ul>
       <% @locations.each do |location| %>
       <li>
-        <%= link_to location.ja_city, shop_city_path(location[:pref],location[:city]) %>
+        <%= link_to "#{location.ja_city} (#{location.shop_count})", shop_city_path(location[:pref],location[:city]) %>
       </li>
       <% end %>
     </ul>
