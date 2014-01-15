@@ -294,7 +294,7 @@ h1,h2,h3,h3{
     padding-left: 7px;
   }
   .btn.btn-default {
-    padding: 0px;
+    padding: 5px;
   }
   .shop-info th {
     width: 85px;
@@ -315,5 +315,8 @@ h1,h2,h3,h3{
   }
   .right-container .shop-title {
     min-height: inherit;
+  }
+  .menu span {
+    font-size: 13px;
   }
 }
