@@ -10,6 +10,13 @@ class ShopController < ApplicationController
     add_breadcrumb 'すぐもぐ', '/'
   end
 
+  def area
+    @area = Spot.where("area = ?",params[:area])
+    @ja_pref = @area[0].ja_area
+
+    render :layout => 'list'
+  end
+
   def pref
     @locations = Location.where('pref = ?', params[:pref])
     @pref = params[:pref]

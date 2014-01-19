@@ -38,7 +38,7 @@ namespace :shop do
             "岡山県"=>"okayama",
             "広島県"=>"hiroshima",
             "山口県"=>"yamaguchi",
-            "徳島県"=>"fukushima",
+            "徳島県"=>"tokushima",
             "香川県"=>"kagawa",
             "愛媛県"=>"ehime",
             "高知県"=>"kouchi",

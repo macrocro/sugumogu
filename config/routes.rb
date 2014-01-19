@@ -3,10 +3,12 @@ Sugumogu::Application.routes.draw do
   ActiveAdmin.routes(self)
   root "top#index"
 
+  get 'shop/ARE:area' => 'shop#area', as: :shop_area
+#  get 'shop/ARE:area/:pref' => 'shop#pref', as: :shop_pref
   get 'shop/:pref' => 'shop#pref', as: :shop_pref
-  get 'shop/:pref/ARE:city' => 'shop#city', as: :shop_city
-  get 'shop/:pref/ARE:city/100000:id' => 'shop#data', as: :shop_data
-  get 'shop/:pref/ARE:city/100000:id/map' => 'shop#data_map', as: :shop_data_map
+  get 'shop/:pref/SUB:city' => 'shop#city', as: :shop_city
+  get 'shop/:pref/SUB:city/100000:id' => 'shop#data', as: :shop_data
+  get 'shop/:pref/SUB:city/100000:id/map' => 'shop#data_map', as: :shop_data_map
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

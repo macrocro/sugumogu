@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-4 left-container same-height">
+    <div class="pref-city-title"><%= "#{@ja_pref}" %>のダイビングスポット</div>
+    <ul>
+      <% @area.each do |area| %>
+      <li>
+        <%= "#{area.name}" %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-8 right-container same-height">
+  </div>
+</div>
